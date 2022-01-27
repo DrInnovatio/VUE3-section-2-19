@@ -7,18 +7,21 @@
 
  <body>
   <div id="app">
-   <p v-if="mode == 1">Showing v-if directive content</p>
-   <template v-else-if="mode == 2">
-    <p>Bonus Content</p>
-    <p>v-else-if</p>
-   </template>
-   <p v-else>v-else</p>
+   <ul>
+    <li v-for="(bird, index) in birds" :class="bird" :key="bird">
+     {{bird}} - {{index}}
+    </li>
+   </ul>
 
-   <select v-model="mode">
-     <option value="1">v-if</option>
-     <option value="2">v-else-if</option>
-     <option value="3">v-else</option>
+   <hr />
 
+   <ul>
+    <li v-for="person in people">
+     <div v-for="(value, key, index) in person">
+      {{key}} : {{value}} - Index : {{index}}
+     </div>
+    </li>
+   </ul>
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
